@@ -10,7 +10,7 @@ public interface UserService {
 
     User createUser(User user);
 
-    void deleteUser(int id);
+    void deleteUser(long id);
 
 //    User getUser(String phonenumber);
 

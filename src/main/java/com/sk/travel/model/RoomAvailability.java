@@ -15,15 +15,15 @@ import java.time.LocalDate;
 @NoArgsConstructor
 @AllArgsConstructor
 public class RoomAvailability {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @ManyToOne
-    @JoinColumn(name = "room_id", nullable = false)
     private Room room;
 
     private LocalDate date;
 
-    private Boolean isAvailable;
+    private boolean available;
 }

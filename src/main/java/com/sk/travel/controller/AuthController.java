@@ -15,30 +15,30 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Optional;
 
-@RestController
-@RequestMapping("/api/auth")
-public class AuthController {
-
-    @Autowired
-    private UserRepository userRepository;
-
-    @PostMapping("/login")
-    public ResponseEntity<?> login(@RequestBody LoginRequest request) {
-        Optional<User> userOpt = Optional.ofNullable(userRepository.findByEmail(request.getEmail()));
-        if (userOpt.isEmpty()) {
-            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Invalid email");
-        }
-
-        User user = userOpt.get();
-        // Check password (plain or encoded)
-        if (!user.getPassword().equals(request.getPassword())) {
-            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Invalid password");
-        }
-
-        // Return role in response
-        Map<String, String> response = new HashMap<>();
-        response.put("role", user.getRole().name());
-        response.put("email", user.getEmail());
-        return ResponseEntity.ok(response);
-    }
-}
+//@RestController
+//@RequestMapping("/api/auth")
+//public class AuthController {
+//
+//    @Autowired
+//    private UserRepository userRepository;
+//
+//    @PostMapping("/login")
+//    public ResponseEntity<?> login(@RequestBody LoginRequest request) {
+//        Optional<User> userOpt = Optional.ofNullable(userRepository.findByEmail(request.getEmail()));
+//        if (userOpt.isEmpty()) {
+//            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Invalid email");
+//        }
+//
+//        User user = userOpt.get();
+//        // Check password (plain or encoded)
+//        if (!user.getPassword().equals(request.getPassword())) {
+//            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Invalid password");
+//        }
+//
+//        // Return role in response
+//        Map<String, String> response = new HashMap<>();
+//        response.put("role", user.getRole().name());
+//        response.put("email", user.getEmail());
+//        return ResponseEntity.ok(response);
+//    }
+//}

@@ -29,7 +29,7 @@ public class User {
         @Enumerated(EnumType.STRING)
         @Column(nullable = false)
         private Status status;
-
+        private String profilePhotoId;
         @CreationTimestamp
         private LocalDateTime createdAt;
 }
